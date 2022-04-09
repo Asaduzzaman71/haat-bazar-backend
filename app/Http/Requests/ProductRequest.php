@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'name' => 'required |max:255',
             'category_id' => 'required',
             'unit_price' => 'required',
-            'no_of_available_products' => 'integer|required',
+            'no_of_unit_in_stock' => 'integer|required',
             'description' => 'required|max:2000',
             'images'    => 'required|sometimes|array|min:1|max:5',
             'images.*' => 'required|mimetypes:image/jpeg,image/png,image/bmp|max:2000',

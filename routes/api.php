@@ -38,11 +38,11 @@ Route::group( ['middleware' => 'jwt.verify'], function()
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
     Route::get('/products', [ProductController::class, 'index']);
-    Route::get('/products/create', [ProductController::class, 'create']);
     Route::post('/products', [ProductController::class, 'store']);
-    Route::put('/products/{products}', [ProductController::class, 'update']);
+    Route::post('/product-search-by-name', [ProductController::class, 'searchProductsByName']);
+    Route::put('/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
-    Route::delete('/product-images/{products}', [ProductController::class, 'deleteImage']);
+    Route::delete('/product-images/{product}', [ProductController::class, 'deleteImage']);
 
 
 });

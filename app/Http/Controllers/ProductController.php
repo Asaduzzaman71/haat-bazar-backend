@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Interfaces\ProductInterface;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
     protected $productInterface;
-    public function __construct(ProductInterface $ProductInterface)
-    {
+    public function __construct(ProductInterface $ProductInterface){
         $this->productInterface = $ProductInterface;
     }
     public function index(){
@@ -24,9 +25,11 @@ class ProductController extends Controller
     public function deleteImage($id){
         return $this->productInterface->deleteProductImage($id);
     }
-    public function destroy($id)
-    {
+    public function destroy($id){
         return $this->productInterface->deleteProduct($id);
+    }
+    public function searchProductsByName(Request $request){
+        return $this->productInterface->productLikeSearch($request);
     }
 
 }
