@@ -16,6 +16,9 @@ class ProductController extends Controller
     public function index(){
         return $this->productInterface->getAllProducts();
     }
+    public function show($id){
+        return $this->productInterface->getProductById($id);
+    }
     public function store(ProductRequest $request){
         return $this->productInterface->requestProduct($request);
     }

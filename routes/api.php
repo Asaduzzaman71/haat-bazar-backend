@@ -38,6 +38,7 @@ Route::group( ['middleware' => 'jwt.verify'], function()
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
     Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/products/{product}', [ProductController::class, 'show']);
     Route::post('/products', [ProductController::class, 'store']);
     Route::post('/product-search-by-name', [ProductController::class, 'searchProductsByName']);
     Route::put('/products/{product}', [ProductController::class, 'update']);
