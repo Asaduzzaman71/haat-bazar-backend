@@ -5,8 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\ProductInterface;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
-
-
 class ProductController extends Controller
 {
     protected $productInterface;
