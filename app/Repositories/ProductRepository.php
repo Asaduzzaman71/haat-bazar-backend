@@ -25,7 +25,7 @@ class ProductRepository implements ProductInterface
     public function getAllProducts()
     {
         try {
-            $products = Product::with('productImages')->get();
+            $products = Product::with('productImages')->latest()->paginate(1);
             return $this->success("All Product", $products);
         } catch(\Exception $e) {
             return $this->error($e->getMessage(), $e->getCode());
@@ -143,14 +143,13 @@ class ProductRepository implements ProductInterface
     }
 
     public function productLikeSearch(Request $request){
-        // try {
-
+        try {
             $products = Product::with('productImages')->where('name', 'LIKE', "%{$request->search_input}%")
             ->latest()
             ->get();
             return $this->success("All Product", $products);
-        // } catch(\Exception $e) {
-        //     return $this->error($e->getMessage(), $e->getCode());
-        // }
+        } catch(\Exception $e) {
+            return $this->error($e->getMessage(), $e->getCode());
+        }
     }
 }
